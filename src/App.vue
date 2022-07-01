@@ -29,9 +29,8 @@ export default {
         name: false,
         link: false,
         cost: false,
-      }
-      
-    }
+      },
+    };
   },
   created(){
     this.items = data;

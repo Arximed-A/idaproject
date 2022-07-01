@@ -51,18 +51,6 @@ export default {
   components: {
     BarItem,
   },
-  data(){
-    return{
-    }
-  },
-  methods:{
-    changeActiveButton(){
-      this.active = !this.active;
-    }
-  },
-  computed:{
-
-  }
 }
 </script>
 

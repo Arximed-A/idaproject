@@ -54,7 +54,6 @@ export default {
       text: null,
     }
   },
-  
   methods:{
     check(){
       if(this.text){
@@ -67,7 +66,7 @@ export default {
     },
     activeForm(id, showButton){
       this.$root.checkForm(id, showButton);
-    }
+    },
   },
 }
 </script>
