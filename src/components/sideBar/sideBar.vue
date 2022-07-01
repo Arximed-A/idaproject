@@ -1,12 +1,12 @@
 <template>
-	<aside class="wrapper">
-		<form action="#" class="form">
-			<BarItem 
-				:title="'Наименование товара'" 
-				:text="'Введите наименование товара'" 
-				:id="'name'" 
-				:type="1" 
-			/>
+  <aside class="wrapper">
+    <form action="#" class="form" method="post" id="form">
+      <BarItem 
+        :title="'Наименование товара'" 
+        :text="'Введите наименование товара'" 
+        :id="'name'" 
+        :type="1" 
+      />
 			<BarItem 
 				:title="'Описание товара'"
 				:text="'Введите описание товара'" 
