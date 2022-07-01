@@ -1,13 +1,27 @@
 <template>
 	<div class="container">
 		<div class="wrapper">
-			<label :for='id' class="label" v-bind:class="{label_dott: type}">
-				{{title}}
+			<label :for='id' 
+				class="label" 
+				v-bind:class="{label_dott: type}">
+					{{title}}
 				<!-- <span class="text-error">Поле является обязательным</span> -->
 			</label>
 		</div>
-		<input v-if="type" :id='id' type="text" :placeholder='text' class="input">
-		<textarea v-else :name='id' :id='id' cols="30" rows="10" class="input input_big" :placeholder='text'></textarea>
+		<input v-if="type" 
+			:id='id'
+			type="text" 
+			:placeholder='text'
+			 class="input">
+		<textarea
+			v-else 
+			:name='id' 
+			:id='id' 
+			cols="30" 
+			rows="10" 
+			class="input input_big" 
+			:placeholder='text'>
+		</textarea>
 	</div>
 </template>
 
@@ -32,7 +46,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
 .container{
 	margin: 0px 0px 10px 0px;
 }

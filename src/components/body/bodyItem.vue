@@ -1,14 +1,12 @@
 <template>
-	<article class="container" :id="id">
-		<img :src="img" alt="camera"
-			class="img">
+	<article class="container" :id="key">
+		<img :src="img" alt="camera" class="img">
 		<div class="wrapper">
 			<h3 class="title">{{name}}</h3>
 			<p class="text">{{text}}</p>
 		</div>
 			<div class="coast">{{coast}} руб.</div>
 	</article>
-
 </template>
 
 <script>
@@ -27,19 +25,14 @@ export default {
 		img:{
 			type: String
 		},
-		id:{
+		key:{
 			type: Number
 		},
-	}
+	},
 }
 </script>
 
 <style lang="scss" scoped>
-
-
-
-
-
 .container{
 	min-height: 423px;
 	flex: 0 0 332px;
@@ -91,7 +84,6 @@ export default {
 	font-weight: 600;
 	padding: 14px 16px 0;
 	margin: 0px 0px 24px 0px;
-	// letter-spacing: -0.2px;
 }
 @media (max-width: 760px){
 	.container{

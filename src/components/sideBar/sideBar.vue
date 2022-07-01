@@ -5,22 +5,26 @@
 				:title="'Наименование товара'" 
 				:text="'Введите наименование товара'" 
 				:id="'name'" 
-				:type="1" />
+				:type="1" 
+			/>
 			<BarItem 
 				:title="'Описание товара'"
 				:text="'Введите описание товара'" 
 				:id="'description'" 
-				:type="0" />
+				:type="0" 
+			/>
 			<BarItem 
 				:title="'Ссылка на изображение товара'" 
 				:text="'Введите ссылку'" 
 				:id="'link'" 
-				:type="1" />
+				:type="1" 
+			/>
 			<BarItem 
 				:title="'Цена товара'"
 				:text="'Введите цену'" 
 				:id="'cost'" 
-				:type="1" />
+				:type="1" 
+			/>
 			<button class="button">
 				Добавить товар
 			</button>
@@ -34,12 +38,11 @@ export default {
 	name:'SideBar',
 	components: {
 		BarItem,
-	}
+	},
 }
 </script>
 
 <style lang="scss" scoped>
-
 .button{
 	margin: 11px 0px 0px 0px;
 	height: 36px;
