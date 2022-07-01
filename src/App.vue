@@ -1,7 +1,9 @@
 <template>
-  <HeaderPage/>
+  <HeaderPage />
   <main class="main-container">
-    <SideBar/>
+    <SideBar 
+      :activeButton= "activeButton" 
+    />
     <BodyPage />
   </main>
 </template>
@@ -22,11 +24,36 @@ export default {
   data(){
     return{
       items: null,
+      activeButton: false,
+      iHaveNoIdea:{
+        name: false,
+        link: false,
+        cost: false,
+      }
+      
     }
   },
   created(){
     this.items = data;
   },
+  methods:{
+    checkForm(id, show){
+      // не нравится это решение, хотя оно и работает.
+      switch(id){
+        case 'name': this.iHaveNoIdea.name = show; 
+          break;
+        case 'link': this.iHaveNoIdea.link = show;
+          break;
+        default: this.iHaveNoIdea.cost = show;
+      }
+      const { name, link, cost } = this.iHaveNoIdea;
+      if (name && link && cost){
+        this.activeButton = true;
+      } else{
+        this.activeButton = false;
+      }
+    },
+  }
 }
 </script>
 
