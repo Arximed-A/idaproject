@@ -1,9 +1,9 @@
 <template>
   <div class="container">
     <div class="wrapper">
-      label :for='id' class="name" v-bind:class="{name_dott: type}">
+      <label :for='id' class="name" v-bind:class="{name_dott: type}">
         {{title}}
-      /label>
+      </label>
     </div>
     <div v-if="type" class="error-wrapper">
       <input :id='id' type="text" :placeholder='text' class="box" v-bind:class="{box_error: error}">
@@ -74,7 +74,6 @@ export default {
     border: 2px solid rgba(255, 132, 132, 1);
   }
 }
-
 .name{
   font-size: 10px;
   color: rgba(73, 72, 94, 1);

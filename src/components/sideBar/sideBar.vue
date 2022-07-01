@@ -26,7 +26,7 @@
         :type="1" 
       />
       <button class="button">
-       Добавить товар
+        Добавить товар
       </button>
     </form>
   </aside>
@@ -66,9 +66,9 @@ export default {
     margin: 0px 0px 20px 0px;
   }
 @media (max-width: 760px){
-	.wrapper{
-		flex: 1 1 auto;
-	}
+  .wrapper{
+    flex: 1 1 auto;
+  }
 }
   .form{
     display: flex;
