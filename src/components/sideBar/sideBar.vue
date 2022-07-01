@@ -3,29 +3,36 @@
     <form action="#" class="form" method="post" id="form">
       <BarItem 
         :title="'Наименование товара'" 
-        :text="'Введите наименование товара'" 
+        :goal="'Введите наименование товара'" 
         :id="'name'" 
-        :type="1" 
+        :size="1"
+        :type="'text'" 
       />
       <BarItem 
         :title="'Описание товара'"
-        :text="'Введите описание товара'" 
+        :goal="'Введите описание товара'" 
         :id="'description'" 
-        :type="0" 
+        :size="0"
+        :type="'text'" 
       />
       <BarItem 
         :title="'Ссылка на изображение товара'" 
-        :text="'Введите ссылку'" 
+        :goal="'Введите ссылку'" 
         :id="'link'" 
-        :type="1" 
+        :size="1" 
+        :type="'text'" 
       />
       <BarItem 
         :title="'Цена товара'"
-        :text="'Введите цену'" 
+        :goal="'Введите цену'" 
         :id="'cost'" 
-        :type="1" 
+        :size="1" 
+        :type="'number'" 
       />
-      <button class="button">
+      <button v-if="!activeButton" class="button" disabled >
+        Добавить товар
+      </button>
+      <button v-else class="button button_active" >
         Добавить товар
       </button>
     </form>
@@ -36,9 +43,26 @@
 import BarItem from './barItem.vue';
 export default {
   name:'SideBar',
+  props:{
+    activeButton:{
+      type: Boolean,
+    }
+  },
   components: {
     BarItem,
   },
+  data(){
+    return{
+    }
+  },
+  methods:{
+    changeActiveButton(){
+      this.active = !this.active;
+    }
+  },
+  computed:{
+
+  }
 }
 </script>
 
@@ -53,8 +77,7 @@ export default {
   background-color: rgba(238, 238, 238, 1);
   transition: all 0.3s ease 0s;
   font-size: 13px;
-    // active
-  &:hover{
+  &_active{
     background: rgba(123, 174, 115, 1);
     color: #FFFFFF;
     cursor: url('../../assets/icon/cursor.svg') 0 0, pointer;

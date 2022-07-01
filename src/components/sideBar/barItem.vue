@@ -1,15 +1,29 @@
 <template>
   <div class="container">
     <div class="wrapper">
-      <label :for='id' class="name" v-bind:class="{name_dott: type}">
+      <label :for='id' class="name" v-bind:class="{name_dott: size}">
         {{title}}
       </label>
     </div>
-    <div v-if="type" class="error-wrapper">
-      <input :id='id' type="text" :placeholder='text' class="box" v-bind:class="{box_error: error}">
+    <div v-if="size" class="error-wrapper">
+      <input 
+        :id='id' 
+        :type='type' 
+        :placeholder='goal' 
+        class="box"
+        v-bind:class="{box_error: error}"
+        @blur="check"
+        @keyup="check" v-model="text">
       <span v-if='error' class="text-error">Поле является обязательным</span>
     </div>
-    <textarea v-else :name='id' :id='id' cols="30" rows="10" class="box box_big" :placeholder='text'>
+    <textarea v-else 
+      :name='id' 
+      :id='id' 
+      cols="30"
+      rows="10" 
+      class="box box_big" 
+      :placeholder='goal'
+    >
     </textarea>
   </div>
 </template>
@@ -21,26 +35,44 @@ export default {
     title:{
       type: String,
     },
-    text: {
+    goal: {
       type: String,
     },
     id: {
       type: String,
     },
-    type: {
+    size: {
       type: Number,
+    },
+    type: {
+      type: String,
     },
   },
   data() {
     return {
       error: false,
+      text: null,
+    }
+  },
+  
+  methods:{
+    check(){
+      if(this.text){
+        this.error = false;
+        this.activeForm(this.id, true);
+      } else{
+        this.error = true;
+        this.activeForm(this.id, false);
+      }
+    },
+    activeForm(id, showButton){
+      this.$root.checkForm(id, showButton);
     }
   },
 }
 </script>
 
 <style lang="scss" scoped>
-
 .container{
   margin: 0px 0px 10px 0px;
 }
@@ -55,7 +87,7 @@ export default {
   border: none;
   padding: 0px 16px ;
   box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease 0s;
+  transition: box-shadow 0.3s ease 0s;
   outline-color: rgb(129, 129, 129);
   &:hover{
     box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.4);
@@ -70,8 +102,8 @@ export default {
     margin: 0px 0px -5px 0px;
   }
   &_error{
-  	// outline-color: rgba(255, 132, 132, 1);
-    border: 2px solid rgba(255, 132, 132, 1);
+    // outline-color: rgba(255, 132, 132, 1);
+    border: 1px solid rgba(255, 132, 132, 1);
   }
 }
 .name{
@@ -103,8 +135,9 @@ export default {
   font-size: 8px;
   color: rgba(255, 132, 132, 1);
   letter-spacing: -0.5px;
-  bottom: -14px;
+  bottom: -12px;
   left:0px;
+  letter-spacing: -0.2px;
 }
 @media (max-width: 760px){
   .box{
